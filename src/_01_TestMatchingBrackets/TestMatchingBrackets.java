@@ -17,14 +17,13 @@ public class TestMatchingBrackets {
     		if(brackets.get(i) == '{') {
     			for(int j=i+1;j<brackets.size()-1;j++) {
     				if(brackets.get(j)=='}') {
-    					brackets.remove(brackets.get(i));
+    					brackets
     					brackets.remove(brackets.get(j));
     					break;
     				}
     			}
     		}
     	}
-    	System.out.println(brackets);
     	if(brackets.size()>=1) {
     		return false;
     	}
