@@ -14,18 +14,21 @@ public class TestMatchingBrackets {
     		brackets.push(b.charAt(i));
     	}
     	for(int i=0;i<brackets.size();i++) {
+    		
     		if(brackets.get(i) == '{') {
-    			for(int j=i+1;j<brackets.size()-1;j++) {
+    			for(int j=i+1;j<brackets.size();j++) {
     				if(brackets.get(j)=='}') {
-    					brackets
-    					brackets.remove(brackets.get(j));
+    					brackets.set(i, 'N');
+    					brackets.set(j, 'N');
     					break;
     				}
     			}
     		}
     	}
-    	if(brackets.size()>=1) {
-    		return false;
+    	for(int i=0;i<brackets.size();i++) {
+    		if(brackets.get(i) == '{' || brackets.get(i)=='}') {
+    			return false;
+    		}
     	}
         return true;
     }

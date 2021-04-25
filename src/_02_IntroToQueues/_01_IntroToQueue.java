@@ -30,7 +30,54 @@ package _02_IntroToQueues;
  * Repeat until there are no more elements in the stack and queue
  */
 
+import java.util.ArrayDeque;
+import java.util.Random;
+import java.util.Stack;
+
 public class _01_IntroToQueue {
+	public static void main(String[] args) {
+		Stack<Double> doubles = new Stack<Double>();
+	    
+		Random rand = new Random();
+		
+		for(int i=0;i<100;i++) {
+			double x = rand.nextDouble()*100;
+			doubles.add(x);
+		}
+		
+		ArrayDeque<Double> five = new ArrayDeque<Double>();
+		
+		for(int i=0;i<5;i++) {
+			double popped = doubles.pop();
+			five.add(popped);
+		}
+		while(doubles.size()>0) {
+			
+			int removing = rand.nextInt(5)+1;
+			
+			String a = "Removing " + removing + " elements from Queue: ";
+			
+			for(int i=0;i<removing;i++) {
+				double x = five.remove();
+				a = a + x + " ";
+			}
+			
+			System.out.println(a);
+			
+			if(doubles.size() > removing) {
+				for(int i = 0;i<removing;i++) {
+					double x = doubles.pop();
+					five.add(x);
+				}
+			}
+			else {
+				for(int i = 0;i<doubles.size();i++) {
+					double x = doubles.pop();
+					five.add(x);
+				}
+			}
+		}
+	}
     // 1. Create a Stack of Doubles using the Stack class
     //    Note: you have to use the capitalized Double and not double
     
@@ -38,6 +85,7 @@ public class _01_IntroToQueue {
     
     // 3. Create a Queue of Doubles using the ArrayDeque class
     //    Note: you have to use the capitalized Double and not double
+
 
     // 4. Pop off 5 elements from the Stack and add them to the Queue 
 
