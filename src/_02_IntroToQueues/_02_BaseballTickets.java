@@ -50,6 +50,7 @@ public class _02_BaseballTickets {
         	}
         	tempElement++;
         }
+        System.out.println(ticketsQueue);
         tempElement = 0;
         while(value > 0) {
         	if(tempElement == position) {
@@ -59,9 +60,9 @@ public class _02_BaseballTickets {
         		ticketsQueue.add(temp);
         	}
         	else {
-        		System.out.println(ticketsQueue.element() <= 0);
 	        	if(ticketsQueue.element() <= 0) {
-	        		ticketsQueue.remove();
+	        		int temp = ticketsQueue.remove();
+	        		ticketsQueue.add(temp);
 	        	}
 	        	else {
 	        		int temp = ticketsQueue.remove() - 1;
@@ -78,8 +79,6 @@ public class _02_BaseballTickets {
         		tempElement++;
         	}
         }
-        System.out.println(ticketsQueue);
-        System.out.println(minutes);
         return minutes;
     }
 }
