@@ -41,7 +41,6 @@ public class MazeMaker {
         // C. if has unvisited neighbors,
     	if(unvisited.size()>0) {
     		Cell unvisit = unvisited.get(randGen.nextInt(unvisited.size()));
-    		System.out.println(unvisit);
     		uncheckedCells.push(unvisit);
     		removeWalls(currentCell, unvisit);
     		currentCell = unvisit;
