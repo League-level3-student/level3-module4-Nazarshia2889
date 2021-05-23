@@ -29,6 +29,23 @@ public class MazeMaker {
         Cell random = maze.cells[randGen.nextInt(rows)][randGen.nextInt(cols)];
         // 3. call the selectNextPath method with the randomly selected cell
         selectNextPath(random);
+        Stack<String> strStack = new Stack<String>();
+
+        String[] words = "code all day".split( " " );
+
+
+
+        for( String word : words ){
+
+            strStack.push( word );
+
+        }
+
+        while( !strStack.isEmpty() ) {
+
+        	System.out.print( strStack.pop() );
+
+        }
         return maze;
     }
 
@@ -57,7 +74,7 @@ public class MazeMaker {
 
         // C5. call the selectNextPath method with the current cell
     	
-    	if(unvisited.size()==0) {
+    	else if(unvisited.size()==0) {
     		if(uncheckedCells.size()>0) {
     			currentCell = uncheckedCells.pop();
     			selectNextPath(currentCell);
@@ -81,19 +98,19 @@ public class MazeMaker {
     private static void removeWalls(Cell c1, Cell c2) {
         if (c1.getRow() == c2.getRow()) {
             if (c1.getCol() > c2.getCol()) {
-                c1.setNorthWall(false);
-                c2.setSouthWall(false);
-            } else {
-                c2.setNorthWall(false);
-                c1.setSouthWall(false);
-            }
-        } else {
-            if (c1.getRow() > c2.getRow()) {
                 c1.setWestWall(false);
                 c2.setEastWall(false);
             } else {
                 c2.setWestWall(false);
                 c1.setEastWall(false);
+            }
+        } else {
+            if (c1.getRow() > c2.getRow()) {
+                c1.setNorthWall(false);
+                c2.setSouthWall(false);
+            } else {
+                c2.setNorthWall(false);
+                c1.setSouthWall(false);
             }
         }
     }
